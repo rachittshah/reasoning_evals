@@ -1,0 +1,111 @@
+{
+    "templates": [
+        {
+            "id": "business_trip",
+            "structure": {
+                "pattern": "Plan an itinerary for a business trip from {origin} to {destination} with a ${budget} budget, {mandatory_activity} in {intermediate_city}, and {additional_requirement}.",
+                "variables": {
+                    "origin": "major city name",
+                    "destination": "major city name different from origin",
+                    "budget": "integer between 500 and 5000",
+                    "mandatory_activity": [
+                        "a mandatory meeting",
+                        "a conference presentation",
+                        "a client visit"
+                    ],
+                    "intermediate_city": "major city between origin and destination",
+                    "additional_requirement": [
+                        "at least one full day of leisure",
+                        "a networking event",
+                        "a team dinner"
+                    ]
+                },
+                "constraints": [
+                    "cities should be logically connected",
+                    "budget should cover all essential expenses",
+                    "schedule should be realistic"
+                ]
+            },
+            "example": {
+                "problem": "Plan an itinerary for a business trip from New York to San Francisco with a $1000 budget, a mandatory meeting in Los Angeles, and at least one full day of leisure in San Francisco.",
+                "solution": "1. Book NY → LA flight ($300)\n2. Attend LA meeting\n3. Take LA → SF transport ($150)\n4. Book budget hotel in SF\n5. Schedule leisure day\n6. Return SF → NY ($300)",
+                "answer": "Day 1: NY → LA; meeting\nDay 2: LA → SF; check-in\nDay 3: SF leisure\nDay 4: Return to NY\nBudget: $750 travel, $250 other",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "event_scheduling",
+            "structure": {
+                "pattern": "Plan a {duration} {event_type} with {components}. {constraints}",
+                "variables": {
+                    "duration": ["one-day", "two-day", "half-day"],
+                    "event_type": ["conference", "workshop", "seminar"],
+                    "components": "list of required activities",
+                    "constraints": "scheduling rules and requirements"
+                },
+                "constraints": [
+                    "no overlapping sessions",
+                    "appropriate breaks between activities",
+                    "realistic timing for each component"
+                ]
+            },
+            "example": {
+                "problem": "Plan the schedule for a one-day conference with a keynote, two breakout sessions, a networking lunch, and a closing panel discussion. Sessions should not overlap and there must be breaks between sessions.",
+                "solution": "1. Schedule keynote 9:00-10:00\n2. Add break 10:00-10:10\n3. Breakout sessions 10:10-11:10\n4. Networking lunch 11:15-12:15\n5. Break 12:15-12:25\n6. Closing panel 12:25-1:25",
+                "answer": "9:00-10:00: Keynote\n10:10-11:10: Breakout Sessions\n11:15-12:15: Networking Lunch\n12:25-1:25: Closing Panel",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "resource_allocation",
+            "structure": {
+                "pattern": "Plan a {project_type} with a ${budget} budget for {duration}. The project must include {requirements}.",
+                "variables": {
+                    "project_type": [
+                        "home renovation",
+                        "event organization",
+                        "product launch"
+                    ],
+                    "budget": "integer between 1000 and 50000",
+                    "duration": "time period",
+                    "requirements": "list of mandatory components"
+                },
+                "constraints": [
+                    "budget allocation must be realistic",
+                    "timeline must be feasible",
+                    "all requirements must be met"
+                ]
+            },
+            "example": {
+                "problem": "Plan a home renovation project for a single-story house with a $15,000 budget. The renovation must include updating the kitchen, painting the interior, and replacing flooring in the living room. Provide a step-by-step plan and cost breakdown.",
+                "solution": "1. Allocate budget: Kitchen $8000, Painting $3000, Flooring $3000\n2. Schedule: Kitchen first, then painting, then flooring\n3. Verify total within budget\n4. Plan execution sequence",
+                "answer": "Budget:\nKitchen: $8000\nPainting: $3000\nFlooring: $3000\nTotal: $14,000\nExecution: Kitchen → Painting → Flooring",
+                "difficulty": "hard"
+            }
+        },
+        {
+            "id": "team_coordination",
+            "structure": {
+                "pattern": "Schedule {activity_type} for a team of {team_size} ({member_names}) given that: {constraints}. {goal}",
+                "variables": {
+                    "activity_type": ["meetings", "training sessions", "presentations"],
+                    "team_size": "integer between 3 and 10",
+                    "member_names": "list of team member identifiers",
+                    "constraints": "list of availability and coordination rules",
+                    "goal": "what needs to be determined"
+                },
+                "constraints": [
+                    "schedule must accommodate all constraints",
+                    "solution must be efficient",
+                    "all team members must be considered"
+                ]
+            },
+            "example": {
+                "problem": "Schedule meetings for a team of five (P, Q, R, S, T) given that: (1) P is available only in the morning; (2) Q and R can only meet after lunch; (3) S and T must meet together; (4) All meetings must be completed by 5 PM. Plan the schedule for one day.",
+                "solution": "1. Schedule P's meeting 9-10 AM (morning requirement)\n2. Schedule Q and R 1-2 PM (after lunch)\n3. Schedule S and T together 3-4 PM\n4. Verify all constraints met",
+                "answer": "9:00-10:00 AM: P's meeting\n1:00-2:00 PM: Q and R's meeting\n3:00-4:00 PM: S and T's meeting",
+                "difficulty": "hard"
+            }
+        }
+    ]
+} 

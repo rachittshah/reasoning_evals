@@ -1,0 +1,66 @@
+{
+    "templates": [
+        {
+            "id": "quadratic_equation",
+            "structure": {
+                "pattern": "A quadratic equation in the form ax² + bx + c = 0 needs to be solved. Given {a}, {b}, and {c}, find the values of x.",
+                "variables": {
+                    "a": "non-zero integer between -10 and 10",
+                    "b": "integer between -20 and 20",
+                    "c": "integer between -50 and 50"
+                },
+                "constraints": [
+                    "b² - 4ac should be a perfect square",
+                    "solutions should be rational numbers"
+                ]
+            },
+            "example": {
+                "problem": "Solve the quadratic equation 2x² - 7x + 3 = 0",
+                "solution": "Using the quadratic formula: x = (-b ± √(b² - 4ac)) / (2a)\n1. a = 2, b = -7, c = 3\n2. b² - 4ac = 49 - 24 = 25\n3. x = (7 ± 5) / 4\n4. x = 3 or x = 1/2",
+                "answer": "x = 3 or x = 1/2"
+            }
+        },
+        {
+            "id": "system_of_equations",
+            "structure": {
+                "pattern": "Solve the system of linear equations:\n{equation1}\n{equation2}",
+                "variables": {
+                    "equation1": "ax + by = c format",
+                    "equation2": "dx + ey = f format",
+                    "coefficients": "integers between -10 and 10"
+                },
+                "constraints": [
+                    "system should have a unique solution",
+                    "solution coordinates should be integers"
+                ]
+            },
+            "example": {
+                "problem": "Solve the system of equations:\n2x + 3y = 13\n4x - y = 5",
+                "solution": "1. Multiply second equation by 3:\n   12x - 3y = 15\n2. Add to first equation:\n   14x = 28\n3. x = 2\n4. Substitute back:\n   2(2) + 3y = 13\n   4 + 3y = 13\n   3y = 9\n   y = 3",
+                "answer": "x = 2, y = 3"
+            }
+        },
+        {
+            "id": "word_problem_age",
+            "structure": {
+                "pattern": "{person1} is {n} years older than {person2}. {n_years} years ago, {person1} was {factor} times as old as {person2}. Find their current ages.",
+                "variables": {
+                    "person1": "name from list",
+                    "person2": "name from list",
+                    "n": "integer between 1 and 10",
+                    "n_years": "integer between 1 and 20",
+                    "factor": "integer between 2 and 4"
+                },
+                "constraints": [
+                    "ages should be positive integers",
+                    "current ages should be reasonable (< 100)"
+                ]
+            },
+            "example": {
+                "problem": "Alice is 5 years older than Bob. 3 years ago, Alice was twice as old as Bob. Find their current ages.",
+                "solution": "1. Let Bob's current age be x\n2. Alice's current age is x + 5\n3. 3 years ago:\n   (x + 5 - 3) = 2(x - 3)\n4. x + 2 = 2x - 6\n5. 8 = x\n6. Bob is 8 years old\n7. Alice is 13 years old",
+                "answer": "Alice is 13 years old, Bob is 8 years old"
+            }
+        }
+    ]
+} 

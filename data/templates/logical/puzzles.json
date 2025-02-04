@@ -1,0 +1,97 @@
+{
+    "templates": [
+        {
+            "id": "seating_arrangement",
+            "structure": {
+                "pattern": "{num_people} friends—{names}—must sit in a row with these constraints: {constraints}. Determine the order (left to right).",
+                "variables": {
+                    "num_people": "integer between 3 and 6",
+                    "names": "list of distinct names",
+                    "constraints": "list of position and adjacency rules"
+                },
+                "constraints": [
+                    "must have at least one valid solution",
+                    "constraints should be unambiguous",
+                    "solution should be unique"
+                ]
+            },
+            "example": {
+                "problem": "Four friends—Alice, Bob, Carol, and David—must sit in a row with these constraints: (1) Alice cannot sit at an end; (2) Bob sits immediately to the left of Carol; (3) David is not adjacent to Carol. Determine the order (left to right).",
+                "solution": "1. Bob must be left of Carol (constraint 2)\n2. Alice must be in position 2 or 3 (constraint 1)\n3. David cannot be next to Carol (constraint 3)\n4. Only valid arrangement: Bob, Carol, Alice, David",
+                "answer": "Bob, Carol, Alice, David",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "department_assignment",
+            "structure": {
+                "pattern": "{num_people} colleagues ({names}) work in different departments: {departments}. Clues: {clues}. Given alphabetical order: {ordered_departments}, assign each colleague.",
+                "variables": {
+                    "num_people": "integer between 3 and 6",
+                    "names": "list of single letters or short names",
+                    "departments": "list of department names",
+                    "clues": "list of assignment rules and constraints"
+                },
+                "constraints": [
+                    "solution must be unique",
+                    "clues should be sufficient to determine solution",
+                    "departments should be in alphabetical order"
+                ]
+            },
+            "example": {
+                "problem": "Five colleagues (A, B, C, D, E) work in different departments: Customer Service, Finance, IT, Marketing, and Sales. Clues: (1) A is not in Customer Service or IT; (2) B is in Finance; (3) C's department starts with C; (4) D is not in Marketing; (5) E works in the department immediately following D's in alphabetical order. Given alphabetical order: Customer Service, Finance, IT, Marketing, Sales, assign each colleague.",
+                "solution": "1. B = Finance (clue 2)\n2. C = Customer Service (clue 3)\n3. A must be Marketing or Sales\n4. If D = IT, then E = Marketing\n5. This allows A = Sales",
+                "answer": "A: Sales; B: Finance; C: Customer Service; D: IT; E: Marketing",
+                "difficulty": "hard"
+            }
+        },
+        {
+            "id": "truth_teller_liar",
+            "structure": {
+                "pattern": "{num_people} persons ({names}) make the following statements: {statements}. Assume each person is either a truth-teller (always true) or a liar (always false). {question}",
+                "variables": {
+                    "num_people": "integer between 3 and 6",
+                    "names": "list of single letters or short names",
+                    "statements": "list of statements about other people's truthfulness",
+                    "question": "what to determine about the group"
+                },
+                "constraints": [
+                    "statements must form a consistent logical system",
+                    "solution must be unique",
+                    "each person must make exactly one statement"
+                ]
+            },
+            "example": {
+                "problem": "Four persons (W, X, Y, Z) make the following statements:\nW: \"X is lying.\"\nX: \"Y is telling the truth.\"\nY: \"Z is lying.\"\nZ: \"W is telling the truth.\"\nAssume each person is either a truth-teller (always true) or a liar (always false). Determine who is telling the truth.",
+                "solution": "1. Assume W is truth-teller ⇒ X is lying\n2. If X lying, Y is not telling truth\n3. If Y lying, Z telling truth\n4. Z says W truth-teller, consistent\n5. Therefore W and Z truth-tellers, X and Y liars",
+                "answer": "W and Z are truth-tellers; X and Y are liars",
+                "difficulty": "hard"
+            }
+        },
+        {
+            "id": "scheduling_puzzle",
+            "structure": {
+                "pattern": "{num_events} {event_type} ({event_names}) must be scheduled {time_frame}. Constraints: {constraints}. {question}",
+                "variables": {
+                    "num_events": "integer between 3 and 6",
+                    "event_type": ["meetings", "presentations", "sessions"],
+                    "event_names": "list of event identifiers",
+                    "time_frame": "time period description",
+                    "constraints": "list of scheduling rules",
+                    "question": "what to determine about the schedule"
+                },
+                "constraints": [
+                    "must have at least one valid solution",
+                    "constraints should create a logical puzzle",
+                    "time slots should be clearly defined"
+                ]
+            },
+            "example": {
+                "problem": "Four meetings (M1, M2, M3, M4) must be scheduled between 9 AM and 12 PM. Constraints: (1) M1 must occur before M3; (2) M2 cannot be the first meeting; (3) M4 must be the last meeting; (4) M3 cannot immediately follow M1. Determine the order.",
+                "solution": "1. M4 must be last\n2. M2 cannot be first\n3. M1 must be before M3\n4. M3 cannot follow M1 directly\n5. Only valid order: M1, M2, M3, M4",
+                "answer": "M1, M2, M3, M4",
+                "difficulty": "medium"
+            }
+        }
+    ]
+} 

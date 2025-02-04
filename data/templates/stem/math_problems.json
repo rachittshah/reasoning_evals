@@ -1,0 +1,96 @@
+{
+    "templates": [
+        {
+            "id": "rectangular_area",
+            "structure": {
+                "pattern": "A rectangular {object}'s length is {percentage}% greater than its width. If the area is {area} square {units}, what is the width?",
+                "variables": {
+                    "object": ["garden", "field", "room", "plot"],
+                    "percentage": "integer between 10 and 50",
+                    "area": "integer between 100 and 500",
+                    "units": ["feet", "meters", "yards"]
+                },
+                "constraints": [
+                    "percentage should result in clean calculations",
+                    "area should result in a rational width"
+                ]
+            },
+            "example": {
+                "problem": "A rectangular garden's length is 20% greater than its width. If the area is 216 square feet, what is the width?",
+                "solution": "1. Let the width be w; then the length is 1.2w\n2. Area = w × 1.2w = 1.2w²\n3. Set up: 1.2w² = 216 ⇒ w² = 216/1.2 = 180\n4. Thus, w = √180 = 6√5",
+                "answer": "6√5 feet",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "right_triangle",
+            "structure": {
+                "pattern": "In a right triangle with right angle at {vertex1}, the altitude from {vertex1} to hypotenuse {vertex2}{vertex3} is {altitude}, and {vertex2}{vertex3} is {hypotenuse}. Find the {target}.",
+                "variables": {
+                    "vertex1": "single uppercase letter",
+                    "vertex2": "single uppercase letter different from vertex1",
+                    "vertex3": "single uppercase letter different from vertex1 and vertex2",
+                    "altitude": "integer between 3 and 12",
+                    "hypotenuse": "integer between altitude*2 and altitude*3",
+                    "target": ["area", "perimeter"]
+                },
+                "constraints": [
+                    "altitude and hypotenuse should result in rational area",
+                    "vertices must be distinct letters"
+                ]
+            },
+            "example": {
+                "problem": "In a right triangle with right angle at B, the altitude from B to hypotenuse AC is 5, and AC is 13. Find the area.",
+                "solution": "1. In a right triangle, altitude h = ab/hypotenuse where a and b are the legs\n2. The area is (1/2)ab\n3. Given h = 5 and hypotenuse = 13: 5 = ab/13 ⇒ ab = 65\n4. Area = (1/2) × 65 = 32.5",
+                "answer": "32.5 square units",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "compound_interest",
+            "structure": {
+                "pattern": "If ${principal} is invested at an annual interest rate of {rate}% compounded {compound_period} for {time} years, what is the final amount?",
+                "variables": {
+                    "principal": "integer multiple of 1000 between 1000 and 10000",
+                    "rate": "decimal between 2 and 8",
+                    "compound_period": ["annually", "semi-annually", "quarterly"],
+                    "time": "integer between 5 and 20"
+                },
+                "constraints": [
+                    "rate should be a clean decimal",
+                    "result should be rounded to nearest cent"
+                ]
+            },
+            "example": {
+                "problem": "If $1000 is invested at an annual interest rate of 5% compounded annually for 10 years, what is the final amount?",
+                "solution": "1. Use formula A = P(1 + r)^t\n2. A = 1000(1 + 0.05)^10\n3. A = 1000 × 1.6289\n4. A = 1628.90",
+                "answer": "$1628.90",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "mixture_problem",
+            "structure": {
+                "pattern": "A {professional} has a {concentration1}% solution and a {concentration2}% solution. How many {units} of each are needed to make {target_volume} {units} of a {target_concentration}% solution?",
+                "variables": {
+                    "professional": ["chemist", "pharmacist", "lab technician"],
+                    "concentration1": "integer between 20 and 80",
+                    "concentration2": "integer between 10 and concentration1-10",
+                    "target_concentration": "value between concentration2 and concentration1",
+                    "target_volume": "integer between 5 and 20",
+                    "units": ["liters", "gallons", "milliliters"]
+                },
+                "constraints": [
+                    "concentrations should result in clean calculations",
+                    "solution should be rational numbers"
+                ]
+            },
+            "example": {
+                "problem": "A chemist has a 40% acid solution and a 20% acid solution. How many liters of each are needed to make 10 liters of a 30% acid solution?",
+                "solution": "1. Let x = liters of 40% solution and y = liters of 20% solution\n2. x + y = 10\n3. 0.40x + 0.20y = 0.30 × 10 = 3\n4. Solve system: x = 5, y = 5",
+                "answer": "5 liters of each solution",
+                "difficulty": "hard"
+            }
+        }
+    ]
+} 

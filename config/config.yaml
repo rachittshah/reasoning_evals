@@ -1,0 +1,119 @@
+models:
+  openai:
+    models:
+      - name: "gpt-4"
+        alias: "o1"
+        max_tokens: 4096
+      - name: "gpt-3.5-turbo"
+        alias: "o3-mini-high"
+        max_tokens: 4096
+  deepseek:
+    models:
+      - name: "deepseek-coder"
+        alias: "r1"
+        max_tokens: 4096
+
+tasks:
+  stem:
+    enabled: true
+    num_samples: 50
+    categories:
+      - algebra
+      - geometry
+      - calculus
+      - physics
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+    evaluation:
+      metrics:
+        - accuracy
+        - reasoning_quality
+        - step_by_step_clarity
+      judge_model: "gpt-4"
+
+  logical_puzzles:
+    enabled: true
+    num_samples: 30
+    categories:
+      - grid_puzzles
+      - sequence_puzzles
+      - constraint_satisfaction
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+    evaluation:
+      metrics:
+        - solution_correctness
+        - reasoning_coherence
+        - constraint_satisfaction
+
+  coding:
+    enabled: true
+    num_samples: 40
+    categories:
+      - algorithms
+      - data_structures
+      - debugging
+      - refactoring
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+    evaluation:
+      metrics:
+        - functional_correctness
+        - code_quality
+        - efficiency
+        - test_coverage
+
+  planning:
+    enabled: true
+    num_samples: 25
+    categories:
+      - itinerary
+      - resource_allocation
+      - scheduling
+    complexity_levels:
+      - simple
+      - moderate
+      - complex
+    evaluation:
+      metrics:
+        - plan_feasibility
+        - constraint_satisfaction
+        - explanation_quality
+
+synthetic_data:
+  templates_dir: "data/templates"
+  output_dir: "data/synthetic"
+  validation:
+    enabled: true
+    validator_model: "gpt-4"
+    quality_threshold: 0.8
+
+evaluation:
+  batch_size: 10
+  max_retries: 3
+  timeout: 30
+  parallel_evaluations: 4
+  save_results: true
+  results_dir: "results"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/eval.log"
+
+reporting:
+  formats:
+    - json
+    - csv
+    - html
+  visualizations:
+    - accuracy_comparison
+    - reasoning_quality_radar
+    - latency_boxplot
+    - token_usage_bar 

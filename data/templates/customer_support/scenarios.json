@@ -1,0 +1,101 @@
+{
+    "templates": [
+        {
+            "id": "technical_troubleshooting",
+            "structure": {
+                "pattern": "Customer reports: '{issue_description}'. System details: {system_info}. Previous actions: {previous_actions}. Provide step-by-step troubleshooting instructions.",
+                "variables": {
+                    "issue_description": "detailed problem description",
+                    "system_info": {
+                        "device_type": ["laptop", "smartphone", "tablet", "desktop"],
+                        "os": ["Windows 10", "macOS", "iOS", "Android"],
+                        "app_version": "string version number"
+                    },
+                    "previous_actions": "list of steps already attempted"
+                },
+                "constraints": [
+                    "instructions must be clear and non-technical",
+                    "steps should be ordered by complexity",
+                    "must include verification steps"
+                ]
+            },
+            "example": {
+                "problem": "Customer reports: 'App keeps crashing when I try to upload photos'. System details: iPhone 13, iOS 16.2, App version 2.1.0. Previous actions: Restarted app, cleared cache.",
+                "solution": "1. Verify photo permissions are enabled\n2. Check available storage space\n3. Update app to latest version\n4. Test with a single small photo\n5. If issue persists, reinstall app",
+                "expected_response": "Let me help you resolve the app crashing issue. First, let's check if the app has permission to access your photos. Go to Settings > Privacy > Photos and ensure our app has access. Next, let's verify you have enough storage space by going to Settings > General > Storage. If these look good, I see you're on version 2.1.0 - there's a newer version available that might fix this issue. Would you like to try updating first?",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "billing_inquiry",
+            "structure": {
+                "pattern": "Customer inquiry: '{question}' Account details: {account_info}. Billing history: {billing_history}. Resolve the billing concern.",
+                "variables": {
+                    "question": "specific billing question",
+                    "account_info": {
+                        "subscription_type": ["basic", "premium", "enterprise"],
+                        "billing_cycle": ["monthly", "annual"],
+                        "payment_method": ["credit card", "PayPal", "bank transfer"]
+                    },
+                    "billing_history": "list of recent transactions"
+                },
+                "constraints": [
+                    "response must cite specific policies",
+                    "calculations must be shown clearly",
+                    "should include next steps"
+                ]
+            },
+            "example": {
+                "problem": "Customer inquiry: 'Why was I charged twice this month?' Account details: Premium subscription, Monthly cycle, Credit card. Billing history: Two charges of $29.99 on 3/1 and 3/15.",
+                "solution": "1. Review billing dates and amounts\n2. Identify overlap with plan upgrade\n3. Calculate pro-rated amount\n4. Explain timing of charges",
+                "expected_response": "I understand your concern about the double charge. Looking at your account, I can see that the first charge on 3/1 was for your previous billing cycle, and the charge on 3/15 occurred when you upgraded to our Premium plan. The new billing date will be the 15th going forward. Would you like me to break down the charges in more detail?",
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "product_recommendation",
+            "structure": {
+                "pattern": "Customer request: '{request}'. Usage requirements: {requirements}. Budget: ${budget}. Recommend suitable products.",
+                "variables": {
+                    "request": "product inquiry",
+                    "requirements": "list of must-have features",
+                    "budget": "integer between 50 and 5000"
+                },
+                "constraints": [
+                    "recommendations must be within budget",
+                    "must explain product benefits",
+                    "should include alternatives"
+                ]
+            },
+            "example": {
+                "problem": "Customer request: 'Need a laptop for video editing'. Usage requirements: 4K video editing, 3D rendering, portable. Budget: $2000.",
+                "solution": "1. Analyze requirements vs budget\n2. List suitable options\n3. Compare key features\n4. Provide recommendation with rationale",
+                "expected_response": "Based on your video editing needs and budget, I recommend the Dell XPS 15 ($1,799) which offers:\n- 11th Gen i7 processor for fast rendering\n- NVIDIA RTX 3050 Ti for 3D work\n- 16GB RAM and 512GB SSD\n- 15.6\" 4K display\n\nAlternatively, consider the ASUS ROG Zephyrus G14 ($1,649) if you need more portability. Would you like more details about either option?",
+                "difficulty": "hard"
+            }
+        },
+        {
+            "id": "service_resolution",
+            "structure": {
+                "pattern": "Service issue: '{issue}'. Impact: {impact}. SLA: {sla_terms}. Customer status: {customer_tier}. Propose resolution plan.",
+                "variables": {
+                    "issue": "service problem description",
+                    "impact": ["high", "medium", "low"],
+                    "sla_terms": "service level agreement details",
+                    "customer_tier": ["basic", "premium", "enterprise"]
+                },
+                "constraints": [
+                    "resolution must meet SLA",
+                    "should include compensation if applicable",
+                    "must provide timeline"
+                ]
+            },
+            "example": {
+                "problem": "Service issue: 'Cloud storage unavailable for 4 hours'. Impact: high. SLA: 99.9% uptime guaranteed. Customer tier: enterprise.",
+                "solution": "1. Acknowledge severity and impact\n2. Calculate SLA breach compensation\n3. Outline immediate resolution steps\n4. Provide preventive measures",
+                "expected_response": "I understand this outage has significantly impacted your operations. As an enterprise customer with a 99.9% uptime SLA, you're entitled to a 20% service credit for this month. I've already initiated this credit. Our team has restored service and implemented additional redundancy to prevent future occurrences. I'll send you a detailed incident report within 24 hours. Would you like me to walk you through our preventive measures?",
+                "difficulty": "hard"
+            }
+        }
+    ]
+} 

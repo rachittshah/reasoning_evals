@@ -1,0 +1,132 @@
+{
+    "templates": [
+        {
+            "id": "data_processing",
+            "structure": {
+                "pattern": "Write a Python function that {operation} a {data_structure} {additional_requirements}.",
+                "variables": {
+                    "operation": [
+                        "reads and filters",
+                        "processes",
+                        "transforms",
+                        "aggregates"
+                    ],
+                    "data_structure": [
+                        "CSV file",
+                        "list",
+                        "dictionary",
+                        "DataFrame"
+                    ],
+                    "additional_requirements": "specific conditions or constraints"
+                },
+                "constraints": [
+                    "solution should use standard Python libraries",
+                    "code should be efficient and readable",
+                    "should include error handling"
+                ]
+            },
+            "example": {
+                "problem": "Write a Python function that reads a CSV (with header) and returns rows where the 'Age' column is greater than 30.",
+                "solution": "import pandas as pd\n\ndef filter_csv_by_age(file_path):\n    df = pd.read_csv(file_path)\n    return df[df['Age'] > 30]",
+                "test_cases": [
+                    {
+                        "input": "data.csv with columns: Name,Age,Salary",
+                        "output": "DataFrame with rows where Age > 30"
+                    }
+                ],
+                "difficulty": "easy"
+            }
+        },
+        {
+            "id": "algorithm_implementation",
+            "structure": {
+                "pattern": "Implement a Python function that {algorithm_task} using {approach}.",
+                "variables": {
+                    "algorithm_task": [
+                        "computes factorial",
+                        "finds Fibonacci numbers",
+                        "merges sorted lists",
+                        "reverses a string"
+                    ],
+                    "approach": [
+                        "an iterative approach",
+                        "a recursive approach",
+                        "dynamic programming",
+                        "a two-pointer technique"
+                    ]
+                },
+                "constraints": [
+                    "solution should be efficient",
+                    "should handle edge cases",
+                    "should include type hints"
+                ]
+            },
+            "example": {
+                "problem": "Write a Python function that returns the nth Fibonacci number using an iterative approach.",
+                "solution": "def fibonacci(n: int) -> int:\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    a, b = 0, 1\n    for _ in range(2, n+1):\n        a, b = b, a + b\n    return b",
+                "test_cases": [
+                    {"input": "n = 0", "output": "0"},
+                    {"input": "n = 1", "output": "1"},
+                    {"input": "n = 5", "output": "5"}
+                ],
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "debugging_task",
+            "structure": {
+                "pattern": "Fix the following Python code that attempts to {intended_behavior}:\n\n{buggy_code}",
+                "variables": {
+                    "intended_behavior": "description of what code should do",
+                    "buggy_code": "code with common programming errors"
+                },
+                "constraints": [
+                    "bugs should be realistic and educational",
+                    "solution should maintain original functionality",
+                    "should include explanation of the fix"
+                ]
+            },
+            "example": {
+                "problem": "Fix the following code intended to compute factorial recursively:\n\ndef factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n)",
+                "solution": "def factorial(n: int) -> int:\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n - 1)",
+                "explanation": "The original code had an infinite recursion because it didn't decrease n in the recursive call. The fix adds the decrement n - 1.",
+                "test_cases": [
+                    {"input": "n = 0", "output": "1"},
+                    {"input": "n = 5", "output": "120"}
+                ],
+                "difficulty": "medium"
+            }
+        },
+        {
+            "id": "data_structure_implementation",
+            "structure": {
+                "pattern": "Implement a Python {data_structure} with the following operations: {operations}.",
+                "variables": {
+                    "data_structure": [
+                        "stack",
+                        "queue",
+                        "linked list",
+                        "binary tree"
+                    ],
+                    "operations": "list of required methods"
+                },
+                "constraints": [
+                    "implementation should be efficient",
+                    "should include proper error handling",
+                    "should use appropriate Python features"
+                ]
+            },
+            "example": {
+                "problem": "Implement a Python stack with push, pop, and peek operations.",
+                "solution": "class Stack:\n    def __init__(self):\n        self.items = []\n    \n    def push(self, item):\n        self.items.append(item)\n    \n    def pop(self):\n        if not self.is_empty():\n            return self.items.pop()\n        raise IndexError('pop from empty stack')\n    \n    def peek(self):\n        if not self.is_empty():\n            return self.items[-1]\n        raise IndexError('peek at empty stack')\n    \n    def is_empty(self):\n        return len(self.items) == 0",
+                "test_cases": [
+                    {
+                        "operations": ["push(1)", "push(2)", "pop()", "peek()"],
+                        "expected": [None, None, 2, 1]
+                    }
+                ],
+                "difficulty": "medium"
+            }
+        }
+    ]
+} 
